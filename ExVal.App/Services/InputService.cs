@@ -1,6 +1,6 @@
-﻿using ExVal.Validator;
+﻿using ExVal.App.Validator;
 
-namespace ExVal.Services;
+namespace ExVal.App.Services;
 
 public static class InputService
 {

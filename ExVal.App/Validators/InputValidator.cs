@@ -1,4 +1,4 @@
-﻿namespace ExVal.Validator;
+﻿namespace ExVal.App.Validator;
 
 public class InputValidator
 {
@@ -6,7 +6,7 @@ public class InputValidator
     {
         var validCharacters = new List<char>
         {
-            ' ', '+', '-', '*', '/', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'
+            ' ', '+', '-', '*', '/', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '(', ')'
         };
 
         if (string.IsNullOrEmpty(input))
@@ -18,6 +18,12 @@ public class InputValidator
         if (input.Any(c => !validCharacters.Contains(c)))
         {
             Console.WriteLine("Your expression is invalid. Accepted characters are digits 0-9, +, -, *, /, and whitespaces. Try again:");
+            return false;
+        }
+
+        if (!input.Contains(" "))
+        {
+            Console.WriteLine("Please use whitespaces to separate operands from operators");
             return false;
         }
 

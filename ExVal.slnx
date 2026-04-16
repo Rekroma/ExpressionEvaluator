@@ -1,4 +1,7 @@
 <Solution>
+  <Folder Name="/Solution Items/">
+    <File Path="README.md" />
+  </Folder>
+  <Project Path="ExVal.App/ExVal.App.csproj" />
   <Project Path="ExVal.Tests/ExVal.Tests.csproj" />
-  <Project Path="ExVal/ExVal.csproj" />
 </Solution>

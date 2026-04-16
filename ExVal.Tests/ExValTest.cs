@@ -1,4 +1,4 @@
-﻿using ExVal.Validator;
+﻿using ExVal.App.Validator;
 
 namespace ExVal.Tests;
 
