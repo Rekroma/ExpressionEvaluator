@@ -1,5 +1,5 @@
 ﻿using ExVal.App.Services;
-using System.Security.Cryptography.X509Certificates;
+
 namespace ExVal.App.Models;
 
 class Program
@@ -14,9 +14,6 @@ class Program
 
         Queue<Token> tokenList = l.Parse(validatedInput);
 
-        foreach (Token t in tokenList)
-        {
-            Console.WriteLine(t.Value);
-        }
+        Console.WriteLine(Evaluator.ResolveAST(tokenList));
     }
 }
