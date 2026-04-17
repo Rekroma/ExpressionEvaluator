@@ -10,6 +10,13 @@ class Program
 
         string validatedInput = InputService.GetValidatedInput();
 
-        
+        Lexer l = new Lexer();
+
+        Queue<Token> tokenList = l.Parse(validatedInput);
+
+        foreach (Token t in tokenList)
+        {
+            Console.WriteLine(t.Value);
+        }
     }
 }
