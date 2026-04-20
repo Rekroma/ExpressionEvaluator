@@ -1,8 +1,10 @@
-﻿namespace ExVal.App.Models;
+﻿using ExpressionEvaluator.Core.Models;
+
+namespace ExpressionEvaluator.App.Models;
 
 public class Evaluator
 {
-    public static double ResolveAST(Queue<Token> ast)
+    public static double Evaluate(Queue<Token> ast)
     {
         Stack<double> s = new Stack<double>();
 

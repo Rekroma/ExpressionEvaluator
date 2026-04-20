@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="ExpressionEvaluator.Core/ExpressionEvaluator.Core.csproj" />
+  <Project Path="ExpressionEvaluator.App/ExpressionEvaluator.App.csproj" />
+  <Project Path="ExpressionEvaluator.Tests/ExpressionEvaluator.Tests.csproj" />
+</Solution>

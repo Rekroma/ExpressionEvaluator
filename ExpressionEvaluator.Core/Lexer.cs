@@ -1,8 +1,10 @@
-﻿namespace ExVal.App.Models;
+﻿using ExpressionEvaluator.Core.Models;
+
+namespace ExpressionEvaluator.Core;
 
 public class Lexer
 {
-    public Queue<Token> Parse(string expression)
+    public static Queue<Token> Parse(string expression)
     {
         List<string> parsedExpression = expression.Split(" ").ToList();
 
@@ -11,11 +13,11 @@ public class Lexer
 
         Dictionary<TokenType, int> precedence = new Dictionary<TokenType, int>()
         {
-            { TokenType.PlusToken, 3 },
-            { TokenType.MinusToken, 3 },
-            { TokenType.MultiplierToken, 4 },
-            { TokenType.DivisionToken, 4 },
-            { TokenType.ModuloToken, 4 },
+            { TokenType.PlusToken, 1 },
+            { TokenType.MinusToken, 1 },
+            { TokenType.MultiplierToken, 2 },
+            { TokenType.DivisionToken, 2 },
+            { TokenType.ModuloToken, 2 },
         };
 
         Dictionary<string, TokenType> tokenMap = new Dictionary<string, TokenType>
@@ -42,14 +44,15 @@ public class Lexer
 
                 else if (newToken.Type == TokenType.ClosingParanthesisToken)
                 {
-                    while (operators.Count > 0 &&
-                           operators.Peek().Type != TokenType.OpeningParanthesisToken)
+                    while (operators.Count > 0 && operators.Peek().Type != TokenType.OpeningParanthesisToken)
                     {
                         output.Enqueue(operators.Pop());
                     }
 
                     if (operators.Count > 0)
+                    {
                         operators.Pop();
+                    }
                 }
 
                 else
@@ -59,8 +62,9 @@ public class Lexer
                         Token lastToken = operators.Peek();
 
                         if (lastToken.Type == TokenType.OpeningParanthesisToken)
+                        {
                             break;
-
+                        }
                         if (precedence[lastToken.Type] >= precedence[newToken.Type])
                         {
                             output.Enqueue(operators.Pop());

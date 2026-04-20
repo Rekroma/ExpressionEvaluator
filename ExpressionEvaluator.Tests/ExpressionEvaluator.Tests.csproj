@@ -23,8 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ExVal.App\ExVal.App.csproj" />
-    <ProjectReference Include="..\ExVal\ExVal.App.csproj" />
+    <ProjectReference Include="..\ExpressionEvaluator.Core\ExpressionEvaluator.Core.csproj" />
   </ItemGroup>
 
   <ItemGroup>
