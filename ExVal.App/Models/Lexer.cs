@@ -15,6 +15,7 @@ public class Lexer
             { TokenType.MinusToken, 3 },
             { TokenType.MultiplierToken, 4 },
             { TokenType.DivisionToken, 4 },
+            { TokenType.ModuloToken, 4 },
         };
 
         Dictionary<string, TokenType> tokenMap = new Dictionary<string, TokenType>
@@ -23,6 +24,7 @@ public class Lexer
             { "-", TokenType.MinusToken },
             { "*", TokenType.MultiplierToken },
             { "/", TokenType.DivisionToken },
+            { "%", TokenType.ModuloToken },
             { "(", TokenType.OpeningParanthesisToken },
             { ")", TokenType.ClosingParanthesisToken }
         };

@@ -41,6 +41,7 @@ public class Evaluator
 
                     return a / b;
                 }
+            case TokenType.ModuloToken: return a % b;
         }
 
         return 0;

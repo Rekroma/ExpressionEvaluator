@@ -19,6 +19,7 @@ public enum TokenType
     MinusToken,
     MultiplierToken,
     DivisionToken,
+    ModuloToken,
     OpeningParanthesisToken,
     ClosingParanthesisToken
 }
