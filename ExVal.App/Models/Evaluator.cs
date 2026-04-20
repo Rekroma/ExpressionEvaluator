@@ -2,11 +2,9 @@
 
 public class Evaluator
 {
-    public static double ResolveAST(Queue<Token> ast) // unfinished
+    public static double ResolveAST(Queue<Token> ast)
     {
         Stack<double> s = new Stack<double>();
-        double sum = 0;
-        bool first = true;
 
         foreach (Token t in ast)
         {
@@ -16,19 +14,15 @@ public class Evaluator
             }
             else
             {
-                double b = s.Pop();
-                
-                if (first)
-                {
-                    sum = s.Pop();
-                    first = false;
-                }                    
-                
-                sum = Calculate(sum, b, t);
+                double right = s.Pop();
+                double left = s.Pop();
+
+                double result = Calculate(left, right, t);
+                s.Push(result);
             }
         }
 
-        return sum;
+        return s.Pop();
     }
 
     public static double Calculate(double a, double b, Token t)

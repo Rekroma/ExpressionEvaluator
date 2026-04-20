@@ -1,6 +1,4 @@
 ﻿using ExVal.App.Models;
-using ExVal.App.Services;
-using ExVal.App.Validator;
 
 namespace ExVal.Tests;
 
@@ -15,6 +13,7 @@ public class Tests
             ["1 + 2 - 3"] = 0,
             ["1 * ( 2 + 3 ) - 4"] = 1,
             ["( 1 + 2 ) * 3 / 4"] = 2.25,
+            ["5 + 6 - ( 3 * 5 + ( 6 - 8 ) ) / 2"] = 4.5,
         };
 
         foreach (var testCase in testCases)
