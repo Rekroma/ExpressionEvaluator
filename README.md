@@ -23,10 +23,18 @@ Parentheses `( )` are supported to override precedence.
 
 ## Input Format
 
-Tokens **must be separated by spaces**. For example:
+Spaces are optional — the lexer strips all whitespace before parsing. Both of the following are valid:
 
 ```
 ( 1 + 2 ) * 3
+(1+2)*3
+```
+
+Negative numbers are also supported:
+
+```
+-5 + 3 * 2
+( -10 + 2 ) * 3
 ```
 
 
@@ -42,6 +50,9 @@ ExpressionEvaluator/
 │       └── TokenType.cs
 ├── ExpressionEvaluator.App/         # Console application entry point
 │   ├── Program.cs
+│   ├── App.cs
+│   ├── Controller/
+│   │   └── InteractionController.cs
 │   └── Validators/
 │       └── InputValidator.cs
 └── ExpressionEvaluator.Tests/       # NUnit test suite
@@ -52,7 +63,6 @@ ExpressionEvaluator/
 
 ## Known Limitations & Areas for Improvement
 
-- **Input format** — tokens must be space-separated
 - **Operator coverage** — no support for exponentiation (`^`)
 - **Test coverage** — currently a single test method covers all cases
 
