@@ -4,11 +4,11 @@ namespace ExpressionEvaluator.Core;
 
 public class Evaluator
 {
-    public static double Evaluate(Queue<Token> ast)
+    public static double Evaluate(Queue<Token> rpn)
     {
         Stack<double> s = new Stack<double>();
 
-        foreach (Token t in ast)
+        foreach (Token t in rpn)
         {
             if (t.Type == TokenType.OperandToken)
             {
