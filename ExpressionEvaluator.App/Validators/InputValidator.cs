@@ -2,26 +2,27 @@
 
 public class InputValidator
 {
-    public static bool IsValid(string input)
+    static readonly HashSet<char> ValidCharacters = new()
     {
-        var validCharacters = new List<char>
-        {
-         ' ', '+', '-', '*', '/', '%', '(', ')',
-         '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'
-        };
+        ' ',
+        '+', '-', '*', '/', '%',
+        '(', ')',
+        '0','1','2','3','4','5','6','7','8','9'
+    };
 
+    public static (bool, string?) Validate(string input)
+    {
         if (string.IsNullOrEmpty(input))
         {
-            Console.WriteLine("You entered no expression. Try again:");
-            return false;
+            return (false, "You entered no expression.");
         }
 
-        if (input.Any(c => !validCharacters.Contains(c)))
+        if (input.Any(c => !ValidCharacters.Contains(c)))
         {
-            Console.WriteLine("Your expression is invalid. Accepted characters are digits 0-9, +, -, *, /, % and whitespaces. Try again:");
-            return false;
+            return (false, $"Your expression is invalid. \n" +
+                           $"Accepted characters are {string.Join(", ", ValidCharacters).TrimStart(" , ")} and whitespaces.");
         }
 
-        return true;
+        return (true, null);
     }
 }

@@ -1,6 +1,6 @@
 ﻿using ExpressionEvaluator.Core.Models;
 
-namespace ExpressionEvaluator.App.Models;
+namespace ExpressionEvaluator.Core;
 
 public class Evaluator
 {
@@ -27,7 +27,7 @@ public class Evaluator
         return s.Pop();
     }
 
-    public static double Calculate(double a, double b, Token t)
+    private static double Calculate(double a, double b, Token t)
     {
         switch (t.Type)
         {

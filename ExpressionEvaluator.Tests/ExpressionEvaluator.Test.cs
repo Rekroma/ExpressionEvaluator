@@ -1,5 +1,4 @@
-﻿using ExpressionEvaluator.App.Models;
-using ExpressionEvaluator.Core;
+﻿using ExpressionEvaluator.Core;
 
 namespace ExpressionEvaluator.Tests;
 
