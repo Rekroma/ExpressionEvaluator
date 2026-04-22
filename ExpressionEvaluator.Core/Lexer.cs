@@ -6,7 +6,29 @@ public class Lexer
 {
     public static Queue<Token> Parse(string expression)
     {
-        List<string> parsedExpression = expression.Split(" ").ToList();
+        List<string> parsedExpression = new List<string>();
+        string temp = "";
+        expression = expression.Replace(" ", "");
+
+        for (int i = 0; i < expression.Length; i++)
+        {
+            if (expression[i] == '-' && i == 0 ||
+               (expression[i] == '-' && (!char.IsDigit(expression[i - 1])) && expression[i - 1] != ')'))
+            {
+                temp = "-";
+            }
+            else if ((!char.IsDigit(expression[i])))
+            {
+                if (temp.Length > 0) parsedExpression.Add(temp);
+                parsedExpression.Add(expression[i].ToString());
+                temp = "";
+            }
+            else
+            {
+                temp += expression[i].ToString();
+            }
+        }
+        if (temp.Length > 0) parsedExpression.Add(temp);
 
         Queue<Token> output = new Queue<Token>();
         Stack<Token> operators = new Stack<Token>();

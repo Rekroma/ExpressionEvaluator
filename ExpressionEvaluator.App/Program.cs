@@ -15,7 +15,7 @@ class Program
         {
             string? input;
 
-            Console.WriteLine("Please enter your expression, separated by whitespaces, and confirm with [ENTER]:");
+            Console.WriteLine("Please enter your expression and confirm with [ENTER]:");
 
             do
             {

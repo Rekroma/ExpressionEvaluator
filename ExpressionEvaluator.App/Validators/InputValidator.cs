@@ -18,13 +18,7 @@ public class InputValidator
 
         if (input.Any(c => !validCharacters.Contains(c)))
         {
-            Console.WriteLine("Your expression is invalid. Accepted characters are digits 0-9, +, -, *, /, and whitespaces. Try again:");
-            return false;
-        }
-
-        if (!input.Contains(" "))
-        {
-            Console.WriteLine("Please use whitespaces to separate operands from operators");
+            Console.WriteLine("Your expression is invalid. Accepted characters are digits 0-9, +, -, *, /, % and whitespaces. Try again:");
             return false;
         }
 
