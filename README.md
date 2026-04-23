@@ -52,7 +52,7 @@ ExpressionEvaluator/
 │   ├── Program.cs
 │   ├── App.cs
 │   ├── Controller/
-│   │   └── InteractionController.cs
+│   │   └── IOController.cs
 │   └── Validators/
 │       └── InputValidator.cs
 └── ExpressionEvaluator.Tests/       # NUnit test suite
@@ -63,7 +63,6 @@ ExpressionEvaluator/
 
 ## Known Limitations & Areas for Improvement
 
-- **Operator coverage** — no support for exponentiation (`^`)
 - **Test coverage** — currently a single test method covers all cases
 
 ## Additional Notes
