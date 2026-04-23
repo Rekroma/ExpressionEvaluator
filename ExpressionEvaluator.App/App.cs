@@ -12,15 +12,24 @@ public static class App
 
         do
         {
-            string validatedInput = InteractionController.GetValidatedInput();
+            string validatedInput = IOController.GetValidatedInput();
 
-            Queue<Token> tokenList = Lexer.Parse(validatedInput);
+            try
+            {
+                Queue<Token> tokenList = Lexer.Parse(validatedInput);
 
-            double result = Evaluator.Evaluate(tokenList);
+                double result = Evaluator.Evaluate(tokenList);
 
-            InteractionController.AnnounceResult(result);
-
-            repeat = InteractionController.AskForNewExpression();
+                IOController.AnnounceResult(result);
+            }
+            catch (Exception e)
+            {
+                IOController.ThrowException(e.Message);
+            }
+            finally
+            {
+                repeat = IOController.AskForNewExpression();
+            }
         }
         while (repeat);
     }

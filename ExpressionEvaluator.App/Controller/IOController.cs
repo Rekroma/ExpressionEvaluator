@@ -2,7 +2,7 @@
 
 namespace ExpressionEvaluator.App.Controller;
 
-public class InteractionController
+public class IOController
 {
     public static string GetValidatedInput()
     {
@@ -32,7 +32,13 @@ public class InteractionController
 
     public static void AnnounceResult(double result)
     {
-        Write($"Your expression evaluates to: {result}");
+        Write($"Your expression evaluates to: {result:F2}");
+        WriteEmptyLine();
+    }
+
+    public static void ThrowException(string exceptionMessage)
+    {
+        Write(exceptionMessage);
         WriteEmptyLine();
     }
 

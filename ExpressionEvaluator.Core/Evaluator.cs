@@ -38,7 +38,7 @@ public class Evaluator
                 {
                     if (b == 0)
                     {
-                        throw new DivideByZeroException("You can't do that.");
+                        throw new DivideByZeroException("You can't divide by zero.");
                     }
 
                     return a / b;
