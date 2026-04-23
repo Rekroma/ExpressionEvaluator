@@ -11,9 +11,11 @@ public class IOController
 
         do
         {
+            Console.Clear();
+
             Write("Enter your expression:");
 
-            input = Read();
+            input = ReadLower();
 
             WriteEmptyLine();
 
@@ -44,17 +46,15 @@ public class IOController
 
     public static bool AskForNewExpression()
     {
-        string input;
+        bool repeat;
 
-        do
+        Write("Do you want to enter a new expression? [y/OTHER KEY]");
+        repeat = ReadLower() == "y";
+        if (!repeat)
         {
-            Write("Do you want to enter a new expression? [y/n]");
-            input = Read();
-            WriteEmptyLine();
+            Write("Program aborted.");
         }
-        while (string.IsNullOrEmpty(input) && input != "y" && input != "n");
-
-        return input == "y";
+        return repeat;
     }
 
     private static void Write(string? s)
@@ -67,7 +67,7 @@ public class IOController
         Console.WriteLine();
     }
 
-    private static string? Read()
+    private static string? ReadLower()
     {
         return Console.ReadLine().ToLower();
     }
