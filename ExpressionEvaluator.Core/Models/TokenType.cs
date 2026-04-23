@@ -8,6 +8,7 @@ public enum TokenType
     MultiplierToken,
     DivisionToken,
     ModuloToken,
+    ExponentiationToken,
     OpeningParanthesisToken,
     ClosingParanthesisToken
 }

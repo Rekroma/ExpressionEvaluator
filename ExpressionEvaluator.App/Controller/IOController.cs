@@ -52,7 +52,7 @@ public class IOController
         repeat = ReadLower() == "y";
         if (!repeat)
         {
-            Write("Program aborted.");
+            Write("Program exited.");
         }
         return repeat;
     }

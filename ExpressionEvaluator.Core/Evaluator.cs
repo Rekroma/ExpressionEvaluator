@@ -44,6 +44,7 @@ public class Evaluator
                     return a / b;
                 }
             case TokenType.ModuloToken: return a % b;
+            case TokenType.ExponentiationToken: return Math.Pow(a, b);
         }
 
         return 0;

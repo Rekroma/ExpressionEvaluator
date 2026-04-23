@@ -40,6 +40,7 @@ public class Lexer
             { TokenType.MultiplierToken, 2 },
             { TokenType.DivisionToken, 2 },
             { TokenType.ModuloToken, 2 },
+            { TokenType.ExponentiationToken, 3},
         };
 
         Dictionary<string, TokenType> tokenMap = new Dictionary<string, TokenType>
@@ -49,6 +50,7 @@ public class Lexer
             { "*", TokenType.MultiplierToken },
             { "/", TokenType.DivisionToken },
             { "%", TokenType.ModuloToken },
+            { "^", TokenType.ExponentiationToken },
             { "(", TokenType.OpeningParanthesisToken },
             { ")", TokenType.ClosingParanthesisToken }
         };
@@ -87,7 +89,10 @@ public class Lexer
                         {
                             break;
                         }
-                        if (precedence[lastToken.Type] >= precedence[newToken.Type])
+                        bool isRightAssociative = newToken.Type == TokenType.ExponentiationToken;
+                        if (isRightAssociative
+                            ? precedence[lastToken.Type] > precedence[newToken.Type]
+                            : precedence[lastToken.Type] >= precedence[newToken.Type])
                         {
                             output.Enqueue(operators.Pop());
                         }
