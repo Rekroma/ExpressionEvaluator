@@ -32,7 +32,7 @@ public class IOController
 
     public static void AnnounceResult(double result)
     {
-        Write($"Your expression evaluates to: {result:F2}");
+        Write($"Your expression evaluates to: {Math.Round(result, 2)}");
         WriteEmptyLine();
     }
 
